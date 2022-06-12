@@ -14,10 +14,14 @@ const routes: Routes = [
         data: { roles: ['dashboard_access'], preload: true}
       },
       {
+        path: 'products',
+        loadChildren: () => import('./products/products.module').then((m) => m.ProductsModule)
+      },
+/*       {
         path: "**",
         redirectTo: "dashboard",
         pathMatch: "full"
-      }
+      } */
     ]
   },
 ];
