@@ -38,6 +38,11 @@ export class HomeComponent implements OnInit {
    */
   public initSidebar(){
     this.menusList.push({icono: "Dashboard@PYP.png", nombre: "Dashboard", ruta: '/home/dashboard'});
+    this.menusList.push({
+      icono: "Pacientes@PYP.png",
+      nombre: "Productos",
+      ruta: "/home/products",
+    });
   }
 
   public async logout() {
