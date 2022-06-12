@@ -1,3 +1,4 @@
+import { Product } from './../interfaces/product.type';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -10,6 +11,15 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getProducts() {
-    return this.http.get(this.api);
+    return this.http.get<Product>(this.api);
+  }
+  createProduct(product: Product) {
+    return this.http.post<Product>(this.api, product);
+  }
+  updateProduct(product: Product) {
+    return this.http.put<Product>(`${this.api}/${product.id}`, product);
+  }
+  deleteProduct(id: number) {
+    return this.http.delete<Product>(`${this.api}/${id}`);
   }
 }
