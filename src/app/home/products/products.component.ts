@@ -1,11 +1,11 @@
-import { Validators } from '@angular/forms';
-import { FormGroup } from '@angular/forms';
-import { FormBuilder } from '@angular/forms';
-import { Product } from './../../interfaces/product.type';
-import { ProductService } from './../../services/product.service';
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatTableDataSource } from '@angular/material/table';
+import { Validators } from "@angular/forms";
+import { FormGroup } from "@angular/forms";
+import { FormBuilder } from "@angular/forms";
+import { Product } from "./../../interfaces/product.type";
+import { ProductService } from "./../../services/product.service";
+import { AfterViewInit, Component, OnInit, ViewChild } from "@angular/core";
+import { MatPaginator } from "@angular/material/paginator";
+import { MatTableDataSource } from "@angular/material/table";
 
 @Component({
   selector: "app-products",
@@ -19,6 +19,7 @@ export class ProductsComponent implements OnInit {
   ) {}
 
   public formProduct: FormGroup;
+  public productId = 0;
 
   public dataSource: MatTableDataSource<Product>;
   displayedColumns: string[] = ["id", "title", "price", "category"];
@@ -41,8 +42,12 @@ export class ProductsComponent implements OnInit {
 
   clickedRows = new Set<Product>();
 
-  openProduct(id: number) {
-    console.log(id);
+  getProduct(id: number) {
+    this.productService.getProduct(id).subscribe((data) => {
+      this.formProduct.patchValue(data);
+      console.log("product loaded");
+    });
+    this.productId = id;
   }
 
   send() {

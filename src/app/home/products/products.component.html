@@ -36,7 +36,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
       mat-row
-      (click)="openProduct(row.id)"
+      (click)="getProduct(row.id)"
       *matRowDef="let row; columns: displayedColumns"
     ></tr>
   </table>
