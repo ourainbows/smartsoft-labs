@@ -11,7 +11,7 @@ export class ProductService {
   constructor(private http: HttpClient) {}
 
   getProducts() {
-    return this.http.get<Product>(this.api);
+    return this.http.get<Product[]>(this.api);
   }
   createProduct(product: Product) {
     return this.http.post<Product>(this.api, product);
