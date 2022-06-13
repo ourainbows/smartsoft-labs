@@ -6,27 +6,27 @@ import { Injectable } from '@angular/core';
   providedIn: "root",
 })
 export class ProductService {
-  api = "https://fakestoreapi.com/products";
+  private api = "https://fakestoreapi.com/products";
 
   constructor(private http: HttpClient) {}
 
-  getProducts() {
+  public getProducts() {
     return this.http.get<Product[]>(this.api);
   }
 
-  getProduct(id: number) {
+  public getProduct(id: number) {
     return this.http.get<Product>(`${this.api}/${id}`);
   }
 
-  createProduct(product: Product) {
+  public createProduct(product: Product) {
     return this.http.post<Product>(this.api, product);
   }
 
-  updateProduct(product: Product, id: number) {
+  public updateProduct(product: Product, id: number) {
     return this.http.put<Product>(`${this.api}/${id}`, product);
   }
 
-  deleteProduct(id: number) {
+  public deleteProduct(id: number) {
     return this.http.delete<Product>(`${this.api}/${id}`);
   }
 }

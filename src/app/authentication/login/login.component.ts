@@ -48,6 +48,10 @@ export class LoginComponent implements OnInit {
 
   public async ngOnInit() {
     this.controlsCreate();
+    this.form.patchValue({
+      user: "mor_2314",
+      password: "83r5^_",
+    });
   }
 
   /**

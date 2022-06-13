@@ -1,12 +1,12 @@
+import { Login } from './../interfaces/user.type';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from "../interfaces/user.type";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root",
 })
 export class AuthService {
-
   private _authenticatedUser: User = {
     active: true,
     lastName: "Apellido",
@@ -14,34 +14,51 @@ export class AuthService {
     createDate: new Date(),
     id: 1,
     secondName: "Nombre 2",
-    firstName: "Nombre"
+    firstName: "Nombre",
   };
 
-  constructor(private http: HttpClient) {
-  }
+  private api = "https://fakestoreapi.com/auth/login";
 
-  public getNames(names: {firstName?: boolean, secondName?: boolean, lastName?: boolean, secondLastName?: boolean}){
+  private user: Login = {
+    username: "mor_2314",
+    password: "83r5^_",
+  };
+
+  constructor(private http: HttpClient) {}
+
+  public getNames(names: {
+    firstName?: boolean;
+    secondName?: boolean;
+    lastName?: boolean;
+    secondLastName?: boolean;
+  }) {
     // tslint:disable-next-line:prefer-const
     let output = [];
-    if(names.firstName){
+    if (names.firstName) {
       output.push(AuthService.validateName(this._authenticatedUser.firstName));
     }
-    if(names.secondName){
+    if (names.secondName) {
       output.push(AuthService.validateName(this._authenticatedUser.secondName));
     }
-    if(names.lastName){
+    if (names.lastName) {
       output.push(AuthService.validateName(this._authenticatedUser.lastName));
     }
-    if(names.secondLastName){
-      output.push(AuthService.validateName(this._authenticatedUser.secondLastName));
+    if (names.secondLastName) {
+      output.push(
+        AuthService.validateName(this._authenticatedUser.secondLastName)
+      );
     }
     return output.join(" ");
   }
 
-  private static validateName(name: string){
-    if(!name || name === "null" || name === "undefined"){
+  private static validateName(name: string) {
+    if (!name || name === "null" || name === "undefined") {
       return "";
     }
     return name;
+  }
+
+  public login() {
+    return this.http.post<User>("/api/login", this.user);
   }
 }

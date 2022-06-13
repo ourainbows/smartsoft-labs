@@ -8,3 +8,8 @@ export interface User {
   secondLastName: string;
   createDate: Date;
 }
+
+export interface Login {
+  username: string;
+  password: string;
+}
