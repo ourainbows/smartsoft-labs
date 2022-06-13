@@ -1,4 +1,5 @@
-import { Login } from './../interfaces/user.type';
+import { tap } from 'rxjs/operators';
+import { Login, Token } from './../interfaces/user.type';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from "../interfaces/user.type";
@@ -59,6 +60,17 @@ export class AuthService {
   }
 
   public login() {
-    return this.http.post<User>("/api/login", this.user);
+    return this.http.post<Token>("/api/login", this.user)
+    .pipe(tap((response) => this.savejwt(response.token)));
+  }
+
+  public savejwt(jwt: string) {
+    localStorage.setItem("jwt", jwt);
+  }
+  public getjwt() {
+    return localStorage.getItem("jwt");
+  }
+  public deletejwt() {
+    localStorage.removeItem("jwt");
   }
 }

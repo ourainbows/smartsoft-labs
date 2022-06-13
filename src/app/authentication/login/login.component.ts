@@ -96,6 +96,8 @@ export class LoginComponent implements OnInit {
         if (this.loginInProgress) {
           return;
         }
+        
+        this.authService.login().subscribe();
         this.loginInProgress = true;
         this.toastService.info("Iniciando, espere un momento.");
         const user = this.form.value["user"];
