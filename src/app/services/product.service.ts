@@ -13,12 +13,19 @@ export class ProductService {
   getProducts() {
     return this.http.get<Product[]>(this.api);
   }
+
+  getProduct(id: number) {
+    return this.http.get<Product>(`${this.api}/${id}`);
+  }
+
   createProduct(product: Product) {
     return this.http.post<Product>(this.api, product);
   }
+
   updateProduct(product: Product) {
     return this.http.put<Product>(`${this.api}/${product.id}`, product);
   }
+  
   deleteProduct(id: number) {
     return this.http.delete<Product>(`${this.api}/${id}`);
   }
