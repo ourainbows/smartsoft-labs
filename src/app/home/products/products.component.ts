@@ -22,7 +22,7 @@ export class ProductsComponent implements OnInit {
   public productId = 0;
 
   public dataSource: MatTableDataSource<Product>;
-  displayedColumns: string[] = ["id", "title", "price", "category"];
+  displayedColumns: string[] = ["id", "title", "price", "category", "delete"];
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   ngOnInit(): void {
@@ -50,7 +50,30 @@ export class ProductsComponent implements OnInit {
     this.productId = id;
   }
 
-  send() {
-    console.log(this.formProduct.value);
+  createProduct() {
+    this.productService.createProduct(this.formProduct.value).subscribe((data) => {
+      console.log("product created");
+      this.dataSource.data.push(data);
+    })
+    this.formProduct.reset();
+  }
+
+  updateProduct() {
+    this.productService.updateProduct(this.formProduct.value, this.productId).subscribe((data) => {
+      console.log("product updated");
+      this.dataSource.data.splice(this.dataSource.data.findIndex((product) => product.id === this.productId), 1, data);
+    })
+    this.formProduct.reset();
+  }
+
+  deleteProduct(id: number, event: Event) {
+    event.stopPropagation(); // prevent row click event
+    this.productService.deleteProduct(id).subscribe((data) => {
+      console.log("product deleted");
+      this.dataSource.data.splice(
+        this.dataSource.data.findIndex((product) => product.id === id),
+        1
+      );
+    });
   }
 }
