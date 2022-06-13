@@ -60,7 +60,7 @@ export class AuthService {
   }
 
   public login() {
-    return this.http.post<Token>("/api/login", this.user)
+    return this.http.post<Token>(this.api, this.user)
     .pipe(tap((response) => this.savejwt(response.token)));
   }
 
