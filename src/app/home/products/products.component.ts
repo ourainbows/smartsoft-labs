@@ -53,7 +53,7 @@ export class ProductsComponent implements OnInit {
   createProduct() {
     this.productService.createProduct(this.formProduct.value).subscribe((data) => {
       console.log("product created");
-      this.dataSource.data.push(data);
+      this.dataSource.data = [...this.dataSource.data, data];
     })
     this.formProduct.reset();
   }
@@ -62,6 +62,7 @@ export class ProductsComponent implements OnInit {
     this.productService.updateProduct(this.formProduct.value, this.productId).subscribe((data) => {
       console.log("product updated");
       this.dataSource.data.splice(this.dataSource.data.findIndex((product) => product.id === this.productId), 1, data);
+      this.paginator._changePageSize(this.paginator.pageSize); // refresh page
     })
     this.formProduct.reset();
   }
@@ -70,10 +71,7 @@ export class ProductsComponent implements OnInit {
     event.stopPropagation(); // prevent row click event
     this.productService.deleteProduct(id).subscribe((data) => {
       console.log("product deleted");
-      this.dataSource.data.splice(
-        this.dataSource.data.findIndex((product) => product.id === id),
-        1
-      );
+      this.dataSource.data = [...this.dataSource.data.filter((product) => product.id !== id)];
     });
   }
 }
