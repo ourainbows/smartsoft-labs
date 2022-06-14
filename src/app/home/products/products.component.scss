@@ -6,7 +6,7 @@
   background-image: linear-gradient(-90deg, #000024, #00234e);
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.55);
 }
-.header {
+.table-head {
   width: 100%;
   height: 60px;
   display: flex;
@@ -35,7 +35,7 @@
     cursor: pointer;
   }
   button:hover {
-      background: #cdcdcd40;
+    background: #cdcdcd40;
   }
 }
 .demo-table {
@@ -96,8 +96,41 @@
   margin-left: -3px;
 }
 
+
 @media (max-width: 700px) {
   .header {
     display: none;
   }
+}
+
+@media (max-width: 650px) {
+.demo-table,
+.mat-table {
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  .mat-table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 1rem;
+    display: table;
+    border-collapse: collapse;
+    margin: 0px;
+  }
+  .mat-row,
+  .mat-header-row {
+    display: table-row;
+  }
+  .mat-cell,
+  .mat-header-cell {
+    word-wrap: initial;
+    display: table-cell;
+    padding: 0px 5px;
+    line-break: unset;
+    width: auto;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: middle;
+  }
+}
 }
