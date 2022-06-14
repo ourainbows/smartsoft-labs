@@ -1,6 +1,6 @@
 # Smartsoft labs test
 
-This is the frontend technical test of [Smartsoftlabs](https://www.smartsoftlabs.com/en/home/) . 
+This is the frontend technical test of [Smartsoftlabs](https://www.smartsoftlabs.com/en/home/) 
 
 Assessment consist in resolve generate a CRUD with a plublic API, generate a new section to show obtained data in a table with angular material, activate login and protect the routes and add information to dashboard related with data of CRUD.
 
