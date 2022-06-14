@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap");
 
 /*::ng-deep.campaign-type-icon g * {*/
 /*  fill: white;*/
@@ -34,7 +34,7 @@
 
 .font1 {
   display: inline-block;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 20pt;
   margin: 0px;
   margin-bottom: 5px;
@@ -42,14 +42,14 @@
 }
 
 .font2 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #6699ff;
   font-size: 12pt;
   margin: 0px;
 }
 
 .font3 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #ffffff;
   font-size: 16pt;
   font-weight: bold;
@@ -58,17 +58,20 @@
 }
 
 .font4 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #ffffff;
   font-size: 15pt;
   font-weight: bold;
 }
 
 .font5 {
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   color: #ffffff;
-  font-size: 28pt;
+  font-size: 16px;
   font-weight: bold;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .tooltip {
@@ -86,7 +89,7 @@
   text-align: center;
   border-radius: 6px;
   padding: 5px 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 
   /* Position the tooltip */
   position: absolute;
@@ -110,7 +113,11 @@
 }
 
 .card-style {
-  background-image: linear-gradient(to right, rgba(102, 153, 255, 0), rgba(255, 255, 255, 0.25));
+  background-image: linear-gradient(
+    to right,
+    rgba(102, 153, 255, 0),
+    rgba(255, 255, 255, 0.25)
+  );
   background-color: rgba(255, 255, 255, 0.1);
   border: rgb(57, 127, 204) solid 1px;
   border-radius: 13px;
@@ -140,7 +147,6 @@
   display: inline-block;
   padding: 0px;
   vertical-align: middle;
-
 }
 
 .no-margin {
@@ -209,7 +215,6 @@
   padding: 0px;
 }
 
-
 .flex-card {
   display: flex;
   color: rgb(255, 255, 255);
@@ -241,7 +246,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-
 }
 
 .campaign-type {
@@ -275,9 +279,7 @@
 
 /*PRUEBASS*/
 
-
 @media screen and (max-width: 1030px) {
-
   .icon-container {
     margin: auto;
     text-align: center;
@@ -347,8 +349,6 @@
     border-top: 1px solid rgba(196, 190, 190, 0.205);
     width: 100%;
   }
-
-
 
   .data-right-border {
     border-right: none;

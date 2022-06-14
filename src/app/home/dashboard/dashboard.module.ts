@@ -31,7 +31,7 @@ import { DashboardComponent } from './dashboard.component';
 @NgModule({
   declarations: [
     DashboardComponent,
-    DashboardBoxComponent
+    DashboardBoxComponent,
   ],
     imports: [
         CommonModule,
