@@ -1,1 +1,37 @@
-<button mat-button (click)="openDialog()">Open dialog</button>
+<h2 mat-dialog-title>Install Angular</h2>
+
+<div>
+    <form [formGroup]="formProduct" (submit)="data.id ? updateProduct() : createProduct()">
+      <label for="title">Nombre</label>
+      <input type="text" id="title" placeholder="Nombre" formControlName="title"/>
+
+      <div>
+        <label for="price">Precio</label>
+        <input type="text" id="price" placeholder="Precio" formControlName="price"/>
+      </div>
+
+      <div>
+        <label for="category">Categoria</label>
+        <input type="text" id="category" placeholder="Categoria" formControlName="category"/>
+      </div>
+
+      <div>
+        <label for="description">Descripcion</label>
+        <input type="text" id="description" placeholder="Descripcion" formControlName="description"/>
+      </div>
+
+      <div>
+        <label for="image">Imagen</label>
+        <input type="text" id="image" placeholder="Imagen" formControlName="image"/>
+      </div>
+
+      <div>
+          <button type="submit" [disabled]="formProduct.invalid">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button [mat-dialog-close]="true" cdkFocusInitial (click)="createProduct()">Enviar</button>
+</mat-dialog-actions>

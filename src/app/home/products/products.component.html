@@ -42,7 +42,7 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr
       mat-row
-      (click)="getProduct(row.id)"
+      (click)="openDialog(row.id)"
       *matRowDef="let row; columns: displayedColumns"
     ></tr>
   </table>
@@ -53,36 +53,6 @@
     aria-label="Select page of periodic elements"
   >
   </mat-paginator>
-
-  <div>
-    <form [formGroup]="formProduct" (submit)="!productId ? createProduct() : updateProduct()">
-      <label for="title">Nombre</label>
-      <input type="text" id="title" placeholder="Nombre" formControlName="title"/>
-
-      <div>
-        <label for="price">Precio</label>
-        <input type="text" id="price" placeholder="Precio" formControlName="price"/>
-      </div>
-
-      <div>
-        <label for="category">Categoria</label>
-        <input type="text" id="category" placeholder="Categoria" formControlName="category"/>
-      </div>
-
-      <div>
-        <label for="description">Descripcion</label>
-        <input type="text" id="description" placeholder="Descripcion" formControlName="description"/>
-      </div>
-
-      <div>
-        <label for="image">Imagen</label>
-        <input type="text" id="image" placeholder="Imagen" formControlName="image"/>
-      </div>
-
-      <div>
-          <button type="submit" [disabled]="formProduct.invalid">Enviar</button>
-      </div>
-    </form>
-  </div>
-  <app-dialog></app-dialog>
+  
+  <button mat-button (click)="openDialog()">Open dialog</button>
 </div>
