@@ -1,27 +1,31 @@
-# PruebaTecnica
+# Smartsoft labs test
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.0.6.
+This is the frontend technical test of [Smartsoftlabs](https://www.smartsoftlabs.com/en/home/) . 
 
-## Development server
+Assessment consist in resolve generate a CRUD with a plublic API, generate a new section to show obtained data in a table with angular material, activate login and protect the routes and add information to dashboard related with data of CRUD.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
 
-## Code scaffolding
+First of all install node dependencies:
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+```bash
+npm install
+```
+Run the application:
+```bash
+ng serve 
+```
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+After run start command you can see web app on:
+```bash
+localhost:4200
+```
+1. Click on "Iniciar sesion" if you don't login, you can't access to other view because each route is protected with the user loged and its json web token.
+2. Click on "Productos" to see the new CRUD data, in this section you can:
+* View data of the public api [Fake Store API](https://fakestoreapi.com/) 
+* Create a new product clicking on top button (+) 
+* Update an existing product clicking its data in the table
+* Delete an product 
+3. On dashboard you can see the CRUD products stats if you click on the last card
