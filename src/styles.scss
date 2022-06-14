@@ -106,3 +106,7 @@ select:-webkit-autofill:focus {
 mat-icon {
   pointer-events: none;
 }
+
+.custom-dialog-container .mat-dialog-container {
+  padding: 5px 50px 30px;
+}

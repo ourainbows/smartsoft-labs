@@ -25,6 +25,7 @@ export class ProductsComponent implements OnInit {
   openDialog(id: number = 0) {
     const dialogRef = this.dialog.open(DialogComponent, {
       data: { id },
+      panelClass: "custom-dialog-container",
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
