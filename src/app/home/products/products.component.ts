@@ -27,17 +27,19 @@ export class ProductsComponent implements OnInit {
       data: { id },
     });
     dialogRef.afterClosed().subscribe((result) => {
-      if (this.dataSource.data.find((product) => product.id === result.id)) {
-        // id is already in the dataSource -> update
-        this.dataSource.data.splice(
-          this.dataSource.data.findIndex((product) => product.id === result.id),
-          1,
-          result
-        );
-        this.paginator._changePageSize(this.paginator.pageSize); // refresh page
-      } else {
-        // id is not in the dataSource -> create
-        this.dataSource.data = [...this.dataSource.data, result];
+      if (result) {
+        if (this.dataSource.data.find((product) => product.id === result.id)) {
+          // id is already in the dataSource -> update
+          this.dataSource.data.splice(
+            this.dataSource.data.findIndex((product) => product.id === result.id),
+            1,
+            result
+          );
+          this.paginator._changePageSize(this.paginator.pageSize); // refresh page
+        } else {
+          // id is not in the dataSource -> create
+          this.dataSource.data = [...this.dataSource.data, result];
+        }
       }
     });
   }

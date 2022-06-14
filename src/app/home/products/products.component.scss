@@ -6,14 +6,61 @@
   background-image: linear-gradient(-90deg, #000024, #00234e);
   box-shadow: 0 1px 13px 0 rgba(0, 0, 0, 0.55);
 }
-
+.header {
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2px 20px;
+  h1 {
+    font-size: 16px;
+    font-weight: bold;
+    color: #fff;
+    margin: 0;
+  }
+  button {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+    background: #4242d300;
+    border: 1px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+  button:hover {
+      background: #cdcdcd40;
+  }
+}
 .demo-table {
   width: 100%;
+  background: transparent;
+}
+.demo-table th {
+  font-weight: bold;
+  color: white;
+  font-size: 15px;
+  border: none;
+  background: #fafafa1a;
+}
+.demo-table td {
+  color: white;
+}
+.demo-table tr:nth-child(odd) {
+  background: #4499df1a;
+}
+.demo-table tr:nth-child(even) {
+  background: #fafafa1a;
 }
 
 .mat-row .mat-cell {
-  border-bottom: 1px solid transparent;
-  border-top: 1px solid transparent;
+  border: none;
   cursor: pointer;
 }
 
@@ -21,16 +68,33 @@
   border-color: currentColor;
 }
 
+.delete__button {
+  color: white;
+  background: #4242d300;
+  border: 1px solid white;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.delete__button:hover {
+  background: #cdcdcd40;
+  color: #ffffff;
+  font-weight: bold;
+}
+
+.paginator {
+  background: #4499df1a;
+  color: white;
+}
+
 .dashboard-box-wrapper {
   overflow: auto;
   height: 89vh;
   /* Fallback for browsers that do not support Custom Properties */
   height: calc(var(--vh, 1vh) * 89);
-  background-image: url('/assets/Dashboard/fondoDashboard@PYP.png');
+  background-image: url("/assets/Dashboard/fondoDashboard@PYP.png");
   z-index: -1;
   margin-left: -3px;
 }
-
 
 @media (max-width: 700px) {
   .header {

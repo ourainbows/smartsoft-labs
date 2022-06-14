@@ -4,6 +4,12 @@
 
 <!-- Showing dashboard with information -->
 <div class="ScrollBar dashboard-box-wrapper">
+  <div class="header">
+    <h1>Productos</h1>
+    <div>
+      <button mat-button (click)="openDialog()">+</button>
+    </div>
+  </div>
   <table
     mat-table
     [dataSource]="dataSource"
@@ -36,7 +42,14 @@
     <!-- Delete Column -->
     <ng-container matColumnDef="delete">
       <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-      <td mat-cell *matCellDef="let element"><button (click)="deleteProduct(element.id, $event)">Eliminar</button></td>
+      <td mat-cell *matCellDef="let element">
+        <button
+          class="delete__button"
+          (click)="deleteProduct(element.id, $event)"
+        >
+          Eliminar
+        </button>
+      </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
@@ -51,8 +64,7 @@
     [pageSizeOptions]="[2, 4, 6]"
     showFirstLastButtons
     aria-label="Select page of periodic elements"
+    class="paginator"
   >
   </mat-paginator>
-  
-  <button mat-button (click)="openDialog()">Open dialog</button>
 </div>
